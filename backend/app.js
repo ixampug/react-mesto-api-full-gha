@@ -56,8 +56,8 @@ app.post('/signin', celebrate({
 }), login);
 
 app.use(auth);
-app.use('/users', userRouter);
-app.use('/cards', cardRouter);
+app.use('/api/users', userRouter);
+app.use('/api/cards', cardRouter);
 app.use(errorLogger);
 app.use('*', (req, res, next) => {
   next(new NotFoundError('страница не существует'));
