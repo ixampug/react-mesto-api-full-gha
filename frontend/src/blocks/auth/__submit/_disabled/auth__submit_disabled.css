@@ -1,0 +1,8 @@
+.auth__submit_disabled {
+    background-color: rgba(255, 255, 255, 1);
+    opacity: 0.2;
+  }
+  
+  .auth__submit_disabled:hover {
+    opacity: 0.2;
+  }

@@ -1,0 +1,12 @@
+.auth__input_type_error {
+    color: red;
+    
+    font-size: 12px;
+    line-height: 15px;
+    
+    margin: 5px auto 0 auto;
+    padding: 0;
+    border: none;
+    min-height: 30px;
+    
+  }

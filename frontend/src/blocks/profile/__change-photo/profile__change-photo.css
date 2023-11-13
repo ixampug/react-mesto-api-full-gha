@@ -1,0 +1,30 @@
+.profile__change-photo {
+    position: relative;
+    border: none;
+    background: inherit;
+    display: block;
+    width: 120px;
+    padding: 0;
+  }
+  
+  .profile__change-photo:hover::after {
+    content:'';
+    position: absolute;
+    display: block;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    background-image: url('../../../images/avatar.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 26px 26px;
+    cursor: pointer;
+  }
+  
+  @media screen and (max-width: 430px) {
+    .profile__change-photo {
+      margin: 0 auto;
+    }
+  }
