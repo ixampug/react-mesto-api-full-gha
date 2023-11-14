@@ -13,4 +13,4 @@ IP-адрес 158.160.126.128
 
 Frontend https://max.students.nomoredomainsmonster.ru
 
-Backend https://max.students.nomoredomainsmonster.ru
+Backend https://max.students.nomoredomainsmonster.ru/api

@@ -147,8 +147,8 @@ class Api {
 }
 
 const api = new Api({
-  baseUrl: "http://localhost:3000",
-  backUrl: "http://localhost:3000"
+  baseUrl: "https://max.students.nomoredomainsmonster.ru/api",
+  backUrl: "https://max.students.nomoredomainsmonster.ru/api"
 });
 
 export default api;
