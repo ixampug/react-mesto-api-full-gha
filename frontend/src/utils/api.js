@@ -105,14 +105,13 @@ class Api {
       });
   }
 
-  login(email, password) {
-    const data = { email, password }; 
+  login = (email, password) => { 
     return fetch(`${this._backUrl}/signin`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(data), 
+      body: JSON.stringify({email, password}), 
     }).then(this._checkResponse)
       .then((data) => {
         if (data.token){
@@ -123,14 +122,13 @@ class Api {
   }
   
 
-  register(email, password) {
-    const data = { email, password };
+  register = (email, password) => {
     return fetch(`${this._backUrl}/signup`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(data),
+      body: JSON.stringify({email, password}),
     }).then(this._checkResponse);
   }
 
