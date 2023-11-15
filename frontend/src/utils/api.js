@@ -148,7 +148,7 @@ class Api {
 
 const api = new Api({
   baseUrl: "https://max.students.nomoredomainsmonster.ru/api",
-  backUrl: "https://max.students.nomoredomainsmonster.ru/api"
+  backUrl: "https://max.students.nomoredomainsmonster.ru"
 });
 
 export default api;

@@ -62,11 +62,11 @@ app.post('/signin', celebrate({
 app.use(auth);
 app.use('/api/users', userRouter);
 app.use('/api/cards', cardRouter);
-app.use(errorLogger);
+
 app.use('*', (req, res, next) => {
   next(new NotFoundError('страница не существует'));
 });
-
+app.use(errorLogger);
 app.use(errors());
 
 app.use(handleErrors);
