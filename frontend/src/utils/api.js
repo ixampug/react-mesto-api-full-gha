@@ -1,8 +1,8 @@
 class Api {
-  constructor({ baseUrl, headers, backUrl }) {
+  constructor({ baseUrl, backUrl }) {
     this._baseUrl = baseUrl;
     this._backUrl = backUrl;
-    this._headers = headers;
+    
   }
 
   _checkResponse(res) {
@@ -16,7 +16,7 @@ class Api {
     const token = localStorage.getItem('jwt');
     return fetch(`${this._baseUrl}/users/me`, {
       headers: {
-        authorization: `${token}`,
+        authorization: `Bearer ${token}`,
         'Content-Type': 'application/json',
       },
     }).then(this._checkResponse);
@@ -26,7 +26,7 @@ class Api {
     const token = localStorage.getItem('jwt');
     return fetch(`${this._baseUrl}/cards`, {
       headers: {
-        authorization: `${token}`,
+        authorization: `Bearer ${token}`,
         'Content-Type': 'application/json',
       },
     }).then(this._checkResponse);
@@ -37,7 +37,7 @@ class Api {
     return fetch(`${this._baseUrl}/users/me`, {
       method: "PATCH",
       headers: {
-        authorization: `${token}`,
+        authorization: `Bearer ${token}`,
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
@@ -52,7 +52,7 @@ class Api {
     return fetch(`${this._baseUrl}/users/me/avatar`, {
       method: "PATCH",
       headers: {
-        authorization: `${token}`,
+        authorization: `Bearer ${token}`,
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
@@ -66,7 +66,7 @@ class Api {
     return fetch(`${this._baseUrl}/cards`, {
       method: "POST",
       headers: {
-        authorization: `${token}`,
+        authorization: `Bearer ${token}`,
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(card),
@@ -78,7 +78,7 @@ class Api {
     return fetch(`${this._baseUrl}/cards/${cardId}`, {
       method: "DELETE",
       headers: {
-        authorization: `${token}`,
+        authorization: `Bearer ${token}`,
         'Content-Type': 'application/json',
       },
     }).then(this._checkResponse);
@@ -90,7 +90,7 @@ class Api {
     return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
       method: method,
       headers: {
-        authorization: `${token}`,
+        authorization: `Bearer ${token}`,
         'Content-Type': 'application/json',
       },
     })
@@ -138,7 +138,7 @@ class Api {
       method: "GET",
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `${token}`
+        'Authorization': `Bearer ${token}`
       },
     }).then(this._checkResponse);
   }
