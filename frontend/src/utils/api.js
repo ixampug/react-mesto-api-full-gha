@@ -84,25 +84,38 @@ class Api {
     }).then(this._checkResponse);
   }
 
-  toggleLike(cardId, isLiked) {
-    const method = isLiked ? "DELETE" : "PUT";
+  // toggleLike(cardId, isLiked) {
+  //   const method = isLiked ? "DELETE" : "PUT";
+  //   const token = localStorage.getItem('jwt');
+  //   return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
+  //     method: method,
+  //     headers: {
+  //       authorization: `Bearer ${token}`,
+  //       'Content-Type': 'application/json',
+  //     },
+  //   })
+  //     .then(this._checkResponse)
+  //     .then((data) => {
+  //       console.log("Ответ от API при переключении лайка:", data);
+  //       return data;
+  //     })
+  //     .catch((error) => {
+  //       console.error("Ошибка при переключении лайка:", error);
+  //       throw error;
+  //     });
+  // }
+
+  toggleLike(cardId, like) {
+    
     const token = localStorage.getItem('jwt');
     return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
-      method: method,
+      method: like ? 'PUT' : 'DELETE',
       headers: {
         authorization: `Bearer ${token}`,
         'Content-Type': 'application/json',
       },
     })
-      .then(this._checkResponse)
-      .then((data) => {
-        console.log("Ответ от API при переключении лайка:", data);
-        return data;
-      })
-      .catch((error) => {
-        console.error("Ошибка при переключении лайка:", error);
-        throw error;
-      });
+      .then(res => res.ok ? res.json() : Promise.reject(`ошибка: ${res.status}`))
   }
 
   login = (email, password) => { 
@@ -150,3 +163,6 @@ const api = new Api({
 });
 
 export default api;
+
+// baseUrl: "https://max.students.nomoredomainsmonster.ru/api",
+//   backUrl: "https://max.students.nomoredomainsmonster.ru/api"

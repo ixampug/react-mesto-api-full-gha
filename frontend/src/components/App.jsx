@@ -28,7 +28,7 @@ export default function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isInfoTooltipPopupOpen, setIsInfoTooltipPopupOpen] = useState(false);
   const [isSucceeded, setIsSucceeded] = useState(false);
-  const [isRegistrationOpen, setRegistrationOpen] = useState(true);
+  // const [isRegistrationOpen, setRegistrationOpen] = useState(true);
 
   useEffect(() => {
     if (isLoggedIn) {
@@ -87,7 +87,8 @@ export default function App() {
   }
 
   function handleCardLike(card) {
-    const isLiked = card.likes.some((i) => i._id === currentUser._id);
+    // const isLiked = card.likes.some((id) => id === currentUser._id);
+    const isLiked = card.likes.some((id) => String(id) === String(currentUser._id));
 
     api
       .toggleLike(card._id, !isLiked)
